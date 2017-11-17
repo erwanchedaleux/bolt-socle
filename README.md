@@ -12,6 +12,7 @@ Specifications
 --------------
 ***
   * Don't follow to :
+    * First, duplicate and rename `/app/config/config.yml.dist` file in `/app/config/config.yml`
     * Change twitter_name variable in `/app/config/config.yml` file _(line 15)_
     * Change mats robots in `/app/config/config.yml` file _(line 16)_
     * Change mailoptions password variable of mail client in `/app/config/config.yml` file _(line 348)_
