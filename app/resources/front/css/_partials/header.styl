@@ -1,0 +1,87 @@
+/***************************************/
+
+.site-header
+    height                              $headerHeight
+    background-color                    $color3
+    color                               $color2
+    padding                             10px 0
+    clearfix()
+
+.sh-lnk
+    float                               left
+
+.sh-logo
+    display                             inline-block
+
+.sh-img
+    vertical-align                      middle
+    width                               30px
+    height                              @width
+
+.sh-sitename
+    display                             inline-block
+    padding-left                        5px
+    vertical-align                      middle
+    font-size                           1.8rem
+    color                               $color2
+    height                              30px
+    font-b()
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-header
+        height                          $headerHeightTablet
+        padding                         15px 0
+
+    .sh-img
+        width                           50px
+        height                          @width
+
+    .sh-sitename
+        font-size                       2.2rem
+        height                          50px
+        line-height                     2.1
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .site-header
+        height                          $headerHeightDesktop
+        padding-bottom                  0
+
+        .inner
+            clearfix()
+
+    .sh-lnk
+        display                         block
+        float                           none
+
+    .sh-img
+        width                           70px
+        height                          @width
+
+    .sh-sitename
+        padding-left                    10px
+        font-size                       2.8rem
+        height                          70px
+        line-height                     2.3
+
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .site-header
+        height                          $headerHeightLarge
+
+    .sh-img
+        width                           90px
+        height                          @width
+
+    .sh-sitename
+        padding-left                    15px
+        font-size                       3.2rem
+        height                          90px
+        line-height                     2.7

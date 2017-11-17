@@ -1,0 +1,33 @@
+{#
+ # Passed in variables:
+ #   fields   — Field data from the form configuration
+ #   config   — Email configuration data
+ #   data     — POSTed data
+ #   metadata — Form meta data
+ #}
+ <table>
+     <tbody>
+         <tr class="m-header">
+             <strong>
+                 Bolt Socle
+             </strong>
+         </tr>
+         <tr class="m-content">
+             <table>
+                 <tbody>
+                     <tr>
+                         <p>Bonjour,</p>
+                         <p>Quelqu'un vient d'utiliser le formulaire de contact sur la page {{ paths.currenturl }}.</p>
+                         <p>Voici les informations recueillies : </p>
+                     </tr>
+                     <tr>
+                         {{ block('submission_summary', '@BoltForms/email/_blocks.twig') }}
+                     </tr>
+                 </tbody>
+             </table>
+         </tr>
+         <tr class="m-footer">
+             © {{ ("now"|date("Y") == "2017" ? '' : "now"|date("Y") ~ " - ") }}{{ "now"|date("Y") }} | <a href="{{ url('homepage') }}" class="sf-lnk">www.bolt-socle.fr</a>
+         </tr>
+     </tbody>
+ </table>

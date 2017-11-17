@@ -1,0 +1,22 @@
+{% extends '_base.twig' %}
+
+{% block global_content %}
+
+    <div id="main">
+        <div class="site-wrapper">
+            {% block header %}
+                {% include 'partials/_header.twig' %}
+            {% endblock header %}
+            {% block content '' %}
+            {% block site_block %}
+                {% if record.panel is defined %}
+                    {{ include('partials/_panel.twig') }}
+                {% endif %}
+            {% endblock %}
+        </div>
+        {%- block footer -%}
+            {% include 'partials/_footer.twig' %}
+        {% endblock footer %}
+    </div>
+
+{% endblock global_content %}

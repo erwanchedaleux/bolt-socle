@@ -1,0 +1,59 @@
+/***************************************/
+
+.mod-pagination
+    text-align                          center
+    padding                             10px 0
+
+.mod-pagination-list
+    margin-top                          10px
+
+.mod-pagination-itm
+    display                             inline-block
+
+    &.active
+        .mod-pagination-lnk
+            background-color            $color9
+            border                      1px solid $color9
+            color                       $color2
+
+.mod-pagination-lnk
+    display                             block
+    background-color                    $color2
+    border                              1px solid $color3
+    color                               $color3
+    border-radius                       100%
+    width                               30px
+    height                              @width
+    padding                             5px 0
+    font-size                           1.2rem
+    font-b()
+    transition3()
+
+    &:hover
+        background-color                $color3
+        color                           $color2
+
+
+/* Mediaqueries Tablet and Desktop ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .mod-pagination-itm
+        margin                           0 5px
+
+    .mod-pagination-lnk
+        width                            40px
+        height                           @width
+        padding                          8px 0
+        font-size                        1.4rem
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .mod-pagination
+        padding                         20px 0
+
+    .mod-pagination-list
+        margin-top                      20px

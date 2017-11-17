@@ -1,0 +1,84 @@
+/***************************************/
+
+.mod-hero
+    position                            relative
+    height                              400px
+    overflow                            hidden
+
+.mod-hero-background
+    height                              100%
+    overflow                            hidden
+
+.mod-hero-picture
+    display                             block
+    width                               100%
+    height                              100%
+
+.mod-hero-img
+    display                             block
+    width                               100%
+    height                              @width
+    translate-middle()
+
+.mod-hero-content
+    width                               80%
+    max-width                           780px
+    translate-middle()
+
+.mod-hero-1
+    padding                             20px
+    background-color                    rgba($color2, 0.6)
+
+.mod-hero-text
+    text-align                          center
+    color                               $color4
+    font-size                           1.4rem
+    font-2()
+
+.mod-hero-baseline
+    &:after
+        content                         ""
+        display                         block
+        width                           4px
+        height                          4px
+        background-color                $color4
+        border-radius                   100%
+        margin                          0 auto
+
+    &:last-child
+        &:after
+            content                     normal
+
+.mod-hero-2
+    margin-top                          20px
+    text-align                          center
+
+
+/* Mediaqueries Tablet and Desktop ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .mod-hero
+        height                          660px
+
+    .mod-hero-img
+        min-width                       1600px
+
+    .mod-hero-1
+        padding                         40px
+
+    .mod-hero-text
+        font-size                       1.8rem
+
+    .mod-hero-baseline
+        display                         inline-block
+
+        &:after
+            display                     inline-block
+            margin                      0 3px 0 3px
+            vertical-align              middle
+
+    .mod-hero-2
+        margin-top                      45px

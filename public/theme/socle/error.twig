@@ -1,0 +1,40 @@
+{% extends '_error_base.twig' %}
+
+{% block content %}
+
+    <div class="site-error">
+        <div class="inner">
+            <div class="sc-errors sc-old-browser">
+                {% if record.image != "" %}
+                    <div class="sc-errors-img">
+                        <a href="{{ image(record.image) }}">
+                            <img src="{{ thumbnail(record.image, 740, 560) }}">
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="sc-errors-logo">
+                    <img srcset="{{ asset('assets/media/img/' ~ site_logo ~ '-90.png', 'theme', true, version) }} 90w,
+                                 {{ asset('assets/media/img/' ~ site_logo ~ '-135.png', 'theme', true, version) }} 135w"
+                         sizes="90px"
+                         alt="{{ config.get('general/sitename') }}"
+                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                         class="sce-img">
+                </div>
+                <h1 class="sc-errors-title-1">
+                    {{ record.title }}
+                </h1>
+                {% if record.teaser is defined %}
+                    <div class="sc-errors-teaser">
+                        {{ record.teaser }}
+                    </div>
+                {% endif %}
+                {% if record.body is defined %}
+                    <div class="sc-errors-body">
+                        {{ record.body }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

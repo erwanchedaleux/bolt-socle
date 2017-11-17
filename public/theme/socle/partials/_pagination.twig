@@ -1,0 +1,37 @@
+{% set link = pager.makelink() %}
+
+{% if pager.totalpages > 1 %}
+<div class="mod-pagination {{class}}">
+  <ul class="mod-pagination-list">
+{# 'first' and 'prev' #}
+{% if pager.current > 1 and class!="narrow" %}
+    <li class="mod-pagination-itm mod-pagination-itm-first"><a href="{{link}}{{pager.current-1}}" class="mod-pagination-lnk" rel="noindex, follow">&#8592; </a></li>
+{% endif %}
+{% if pager.current > surr+1 %}
+    <li class="mod-pagination-itm mod-pagination-itm-prev"><a href="{{link}}{{1}}" class="mod-pagination-lnk">&laquo; 1</a></li>
+{% endif %}
+
+{# start with '..' if there are more than surr+1 before currentpage.. #}
+{% if pager.current > surr+2 %}
+    <li class="mod-pagination-itm disabled"><a class="mod-pagination-lnk">…</a></li>
+{% endif %}
+
+{% for i in max(1, pager.current-surr)..min(pager.current+surr, pager.totalpages) %}
+    <li class="mod-pagination-itm{% if i==pager.current %} active{%endif%}"><a href="{{link}}{{i}}" class="mod-pagination-lnk" {% if i != 1 %}rel="noindex, follow"{% endif %}>{{i}}</a></li>
+{% endfor %}
+
+{# end with '..' if there are more than surr+1 after currentpage.. #}
+{% if pager.current < (pager.totalpages - surr - 1) %}
+    <li class="mod-pagination-itm disabled"><a class="mod-pagination-lnk">…</a></li>
+{% endif %}
+
+{# 'next' and 'last' #}
+{% if pager.current < pager.totalpages-surr %}
+    <li class="mod-pagination-itm mod-pagination-itm-last"><a href="{{link}}{{pager.totalpages}}" class="mod-pagination-lnk" rel="noindex, follow">{{pager.totalpages}} &raquo; </a></li>
+{% endif %}
+{% if pager.current < pager.totalpages and class!="narrow" %}
+    <li class="mod-pagination-itm mod-pagination-itm-next"><a href="{{link}}{{pager.current+1}}" class="mod-pagination-lnk" rel="noindex, follow">&#8594;</a></li>
+{% endif %}
+  </ul>
+</div>
+{% endif %}

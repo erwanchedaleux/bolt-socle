@@ -1,0 +1,32 @@
+# Optional config file for the theme.
+
+# Variables that are in this file, can be used in your twig template like {{ theme.foo }}
+
+# Aliases can be set to restrict images to a specific set of available
+# resolutions or to decouple image sizes from template files.
+thumbnails:
+    aliases:
+        hero_mobile_320:
+            size: [320,400]
+            cropping: crop
+        hero_mobile_640:
+            size: [640,800]
+            cropping: crop
+        hero_mobile_960:
+            size: [960,1200]
+            cropping: crop
+        hero_tablet_640:
+            size: [640,400]
+            cropping: crop
+        hero_tablet_960:
+            size: [960,600]
+            cropping: crop
+        hero_tablet_1490:
+            size: [1490,900]
+            cropping: crop
+        hero_desktop_1600:
+            size: [1600,660]
+            cropping: crop
+        hero_desktop_2400:
+            size: [2400,990]
+            cropping: crop

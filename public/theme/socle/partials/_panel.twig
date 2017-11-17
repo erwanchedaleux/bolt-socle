@@ -1,0 +1,65 @@
+<div class="mod-panel article">
+    {% if haswidgets('panel_bottom') %}
+        {{ widgets('panel_bottom') }}
+    {% else %}
+        <div class="inner">
+            {# The next section attempts to fill the panel in the sidebar with the contents of the
+               'panel-footer'-block, if it exists. First, attempt to fetch the block with slug 'panel-footer' #}
+            {% setcontent block = "block/panel-bottom" %}
+
+            {# check if we have a title. If so, we know we have content to dimplay. Otherwise, we will
+               output a default text, telling the user to create the 'blocks' in the backend. #}
+            {% if block.title is defined %}
+                <h5 class="mod-panel-title-1">{{ block.title }}</h5>
+                <div class="mod-panel-global-content">
+                    {{ block.content }}
+                </div>
+                <div class="row-tablet row-desktop">
+                    {% for repeater_block in block.repeater %}
+                        {% set repeater_length = (12 / block.repeater|length) %}
+                        {% set content_link = repeater_block.contentlink|default() %}
+
+                        {%- if content_link %}
+                            <a href="{{ relative_path(content_link|e) }}" class="mod-panel-wrapper-block col-tablet-{{ repeater_length }} col-desktop-{{ repeater_length }}">
+                        {% else %}
+                            <div class="mod-panel-wrapper-block col-tablet-{{ repeater_length }} col-desktop-{{ repeater_length }}">
+                        {% endif -%}
+
+                            <div class="mod-panel-block">
+                                <h6 class="mod-panel-title-2">{{ repeater_block.title }}</h6>
+                                <div class="mod-panel-background">
+
+                                    {% if repeater_block.image %}
+                                        <img srcset="{{ thumbnail(repeater_block.image, 300, 200) ~ '?' ~ version }} 300w,
+                                                     {{ thumbnail(repeater_block.image, 600, 400) ~ '?' ~ version }} 600w"
+                                             sizes="(max-width:639px) 300px, (min-width:640px) 300px"
+                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                             alt=""
+                                             class="mod-panel-img">
+                                    {% else %}
+                                        <div class="mod-panel-img-not-found"></div>
+                                    {% endif %}
+
+                                </div>
+                                <div class="mod-panel-content">
+                                    {{ repeater_block.content|raw }}
+                                </div>
+
+                                {%- if content_link %}
+                                    <div class="mod-panel-read-more">
+                                        <button class="btn-1">{{ __('general.phrase.read-more') }}</button>
+                                    </div>
+                                {% endif -%}
+                            </div>
+
+                        {%- if content_link %}
+                            </a>
+                        {% else %}
+                            </div>
+                        {% endif -%}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

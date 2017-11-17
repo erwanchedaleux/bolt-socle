@@ -1,0 +1,81 @@
+/********************************/
+
+[class^="btn-"]
+[class*=" btn-"]
+a[class^="btn-"]
+a[class*=" btn-"]
+button[type="submit"]
+    display                             inline-block
+    text-align                          center
+    vertical-align                      middle
+    user-select                         none
+    border                              1px solid transparent
+    padding                             6px 15px
+    font-size                           1.4rem
+    overflow                            visible
+    touch-action                        manipulation
+    text-decoration                     none
+    border-radius                       15px
+    cursor                              pointer
+    transform                           scale(1)
+    transition3()
+
+.btn-1
+a.btn-1
+    background-color                    $color3
+    border-color                        $color3
+    color                               $color2
+
+    &:hover
+        background-color                $color2
+        border-color                    $color3
+        color                           $color3
+
+.btn-3
+a.btn-3
+    background-color                    transparent
+    border-color                        $color2
+    color                               $color3
+
+    &:hover
+        background-color                $color2
+        color                           $color3
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         10px 20px
+        font-size                       1.4rem
+        border-radius                   20px
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         10px 25px
+        font-size                       1.6rem
+        border-radius                   25px
+
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    [class^="btn-"]
+    [class*=" btn-"]
+    a[class^="btn-"]
+    a[class*=" btn-"]
+    button[type="submit"]
+        padding                         15px 30px
+        font-size                       1.8rem
+        border-radius                   30px

@@ -1,0 +1,22 @@
+{% extends '_base.twig' %}
+
+{% block opengraph_meta '' %}
+{% block twitter_meta '' %}
+{% block old_browser '' %}
+{% block inline_js '' %}
+{% block inline_stylesheets '' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/errors.css', 'theme', false, version) }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/images.css', 'theme', false, version) }}">
+{% endblock stylesheets %}
+{% block fonts '' %}
+{% block main_javascripts '' %}
+{% block head_javascripts '' %}
+
+{% block global_content %}
+
+    <div id="main">
+        {% block content '' %}
+    </div>
+
+{% endblock global_content %}

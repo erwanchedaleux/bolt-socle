@@ -1,0 +1,182 @@
+/***************************************/
+
+.site-navigation
+    position                            absolute
+    z-index                             1
+    top                                 0
+    right                               0
+    width                               80%
+    height                              100vh
+    background-color                    $color5
+    transform                           translateX(100%)
+
+.sn-list
+    padding                             20px 10px
+
+.sn-itm
+    padding                             10px
+
+    &.active
+        font-b()
+
+.sn-lnk
+    display                             block
+    color                               $color2
+    padding                             0 10px
+    font-size                           1.6rem
+    text-transform                      uppercase
+
+.sn-itm-dropdown
+    .sn-list
+        display                         none
+        background-color                $color6
+        margin                          10px -30px 0 -30px
+        padding                         0 30px
+
+        .sn-lnk
+            font-size                   1.4rem
+            text-transform              none
+
+    &:hover
+        .sn-list
+            display                     block
+
+.site-navigation-mobile
+    float                               right
+    width                               30px
+    height                              @width
+    margin-right                        15px
+
+.snm-btn
+    position                            relative
+    z-index                             1
+    width                               30px
+    height                              @width
+    padding                             0
+    border                              none
+    background-color                    transparent
+    transition3()
+
+.snm-bar
+    position                            absolute
+    left                                0
+    display                             block
+    width                               30px
+    height                              2px
+    background-color                    $color2
+    transition3()
+
+    &:nth-child(1)
+        top                             5px
+
+    &:nth-child(2)
+        top                             50%
+        margin-top                      -1px
+
+    &:nth-child(3)
+        bottom                          5px
+        margin-top                      -2px
+
+.js-nav-mobile-opened
+    .snm-btn
+        transform                       rotate(90deg)
+
+    .snm-bar
+        &:nth-child(1)
+            top                         14px
+            left                        -5px
+            width                       40px
+            transform                   rotate(45deg)
+
+        &:nth-child(2)
+            opacity                     0
+
+        &:nth-child(3)
+            top                         16px
+            left                        -5px
+            width                       40px
+            transform                   rotate(-45deg)
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-navigation
+        width                           50%
+
+    .site-navigation-mobile
+        margin-top                      10px
+        margin-right                    25px
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .site-navigation-mobile
+        display                         none
+
+    .site-navigation
+        position                        relative
+        width                           100%
+        height                          auto
+        background-color                $color4
+        transform                       inherit
+        margin-top                      10px
+
+    .sn-list
+        padding                         0
+        margin                          0 -20px
+        font-size                       0
+
+    .sn-itm
+        display                         inline-block
+        vertical-align                  top
+        padding                         0
+        width                           auto
+
+    .sn-lnk
+        padding                         10px 20px
+        font-size                       1.4rem
+        text-transform                  none
+
+        &:hover
+            background-color            $color3
+
+    .sn-itm-dropdown
+        position                        relative
+
+        &:hover
+            > .sn-lnk
+                background-color        $color3
+
+        .sn-list
+            display                     none
+            position                    absolute
+            background-color            $color3
+            margin                      0
+            padding                     0
+            min-width                   100%
+            white-space                 nowrap
+
+        .sn-itm
+            display                     block
+
+            .sn-lnk
+                padding                 5px 20px
+
+                &:hover
+                    background-color    $color4
+
+                    .sn-list
+                        display         block
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .sn-lnk
+        font-size                       1.6rem
+
+    .sn-itm-dropdown
+        .sn-itm
+            .sn-lnk
+                padding                 10px 20px
+                font-size               1.4rem

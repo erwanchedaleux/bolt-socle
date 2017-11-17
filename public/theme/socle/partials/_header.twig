@@ -1,0 +1,23 @@
+<header class="site-header">
+    <div class="inner">
+        <a href="{{ url('homepage') }}" class="sh-lnk">
+            <div class="sh-logo">
+                <img srcset="{{ asset('assets/media/img/' ~ site_logo ~ '-30.png', 'theme', true, version) }} 30w,
+                             {{ asset('assets/media/img/' ~ site_logo ~ '-50.png', 'theme', true, version) }} 50w,
+                             {{ asset('assets/media/img/' ~ site_logo ~ '-70.png', 'theme', true, version) }} 70w,
+                             {{ asset('assets/media/img/' ~ site_logo ~ '-90.png', 'theme', true, version) }} 90w,
+                             {{ asset('assets/media/img/' ~ site_logo ~ '-135.png', 'theme', true, version) }} 135w"
+                     sizes="(max-width:639px) 30px, (min-width:640px) and (max-width:959px) 50px, (min-width:960px) and (max-width:1399px) 70px, (min-width:1400px) 90px"
+                     alt="{{ config.get('general/sitename') }}"
+                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     class="sh-img">
+            </div>
+            <div class="sh-sitename">
+                {{ config.get('general/sitename') }}
+            </div>
+        </a>
+    </div>
+    {% block navigation %}
+        {{ menu('foo', 'partials/_navigation.twig') }}
+    {% endblock navigation %}
+</header>

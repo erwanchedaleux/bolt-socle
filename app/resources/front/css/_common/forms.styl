@@ -1,0 +1,83 @@
+/***************************************/
+
+.boltform
+    max-width                           500px
+    margin                              0 auto
+
+.boltforms-row
+    margin-bottom                       10px
+
+.boltforms-hidden-row
+    display                             none
+
+.boltforms-label
+    display                             block
+    color                               $color5
+
+    label
+        &.required
+            &:after
+                content                 "*"
+                display                 inline-block
+                margin-left             5px
+
+.boltforms-error
+    color                               $errorColor
+    font-size                           1rem
+    font-b()
+
+    ul
+        list-style                      none
+
+    li
+        padding                         0
+
+.boltforms-value
+    display                             block
+    background-color                    $color2
+    border                              1px solid $color7
+    border-radius                       4px
+
+    input:not([type="hidden"])
+    textarea
+    select
+        padding                         10px
+        width                           100%
+        background-color                transparent
+        border                          none
+        color                           $color5
+
+    select
+        padding                         0 5px
+        height                          39px
+
+    textarea
+        resize                          vertical
+        min-height                      150px
+
+.boltforms-btn-1-row
+    text-align                          right
+
+.boltform-message
+    border                              1px dashed $successColor
+    color                               $successColor
+    padding                             10px
+    border-radius                       3px
+
+.boltform-error
+    border                              1px dashed $errorColor
+    color                               $errorColor
+    padding                             10px
+    border-radius                       3px
+
+/* Mediaqueries only Mobile ( <= 639px) */
+// @media all and ( max-width: $smallScreenContentMinWidth )
+
+/* Mediaqueries only Tablet ( >= 640px && <= 959px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth ) and ( max-width: $mediumScreenContentMinWidth )
+
+/* Mediaqueries Desktop ( >= 960px && <= 1399px) */
+// @media all and ( min-width: $mediumScreenContentMaxWidth ) and ( max-width: $largeScreenContentMinWidth )
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )

@@ -1,0 +1,97 @@
+/***************************************/
+
+html
+body
+#main
+    width                               100%
+    height                              100%
+    min-width                           320px
+
+body
+    position                            relative
+    overflow-x                          hidden
+
+#main
+    font-size                           1.4rem
+    transition4(transform)
+    font-1()
+
+.site-wrapper
+    min-height                          100%
+    margin-bottom                       -($footerHeight)
+
+    &:after
+        content                         ""
+        display                         block
+        height                          $footerHeight
+
+.site-content
+    padding                             10px 0
+
+.sc-teaser
+    padding-bottom                      20px
+    margin-bottom                       20px
+    border-bottom                       1px dashed $color7
+
+.sc-body
+    padding-bottom                      15px
+
+.inner
+    max-width                           $innerWidth
+    margin                              0 auto
+    padding                             0 10px
+
+.js-nav-mobile-opened
+    #main
+        transform                       translateX(-80%)
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( min-width: $smallScreenContentMaxWidth )
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightTablet)
+
+        &:after
+            height                      $footerHeightTablet
+
+    .js-nav-mobile-opened
+        #main
+            transform                   translateX(-50%)
+
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightDesktop)
+
+        &:after
+            height                      $footerHeightDesktop
+
+    .site-content
+        padding                         20px 0
+
+    .sc-teaser
+        padding-bottom                      40px
+        margin-bottom                       40px
+
+    .sc-body
+        padding-bottom                      30px
+
+    .js-nav-mobile-opened
+        #main
+            transform                   none
+
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .site-wrapper
+        margin-bottom                   -($footerHeightLarge)
+
+        &:after
+            height                      $footerHeightLarge
+
+    .inner
+        max-width                       $largeScreenContentMaxWidth

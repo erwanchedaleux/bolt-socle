@@ -1,0 +1,82 @@
+/***************************************/
+
+.mod-panel
+    padding                             20px 0
+    background-color                    $color3
+
+    .mod-panel-title-1
+        color                           $color2
+        text-align                      center
+
+    .mod-panel-global-content
+        margin-bottom                   20px
+        color                           $color2
+        text-align                      center
+
+    .mod-panel-wrapper-block
+        text-decoration                 none
+
+    .mod-panel-block
+        background-color                $color2
+        overflow                        hidden
+        margin-bottom                   20px
+        padding                         10px
+
+    .mod-panel-title-2
+        padding                         10px 0
+        color                           $color4
+
+    .mod-panel-content
+        margin-bottom                   10px
+
+    .mod-panel-img
+        width                           100%
+
+    .mod-panel-read-more
+        text-align                      right
+
+
+/* Mediaqueries Tablet and Desktop ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .mod-panel
+        .mod-panel-wrapper-block:hover
+            [class^="btn-"]
+            [class*=" btn-"]
+            a[class^="btn-"]
+            a[class*=" btn-"]
+                background-color        transparent
+                color                   $color2
+
+        .mod-panel-block
+            background-color            transparent
+            padding                     0
+            text-align                  center
+
+        .mod-panel-title-2
+            color                       $color9
+
+        .mod-panel-content
+            color                       $color2
+            margin                      10px 0 20px 0
+
+        .mod-panel-read-more
+            text-align                  center
+
+            [class^="btn-"]
+            [class*=" btn-"]
+            a[class^="btn-"]
+            a[class*=" btn-"]
+                background-color        $color2
+                border-color            $color2
+                color                   $color3
+
+/* Mediaqueries Large ( >= 1400px) */
+@media all and ( min-width: $largeScreenContentMaxWidth )
+
+    .mod-panel
+        .mod-panel-wrapper-block
+            padding                     0 40px

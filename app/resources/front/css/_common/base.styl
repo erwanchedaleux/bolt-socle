@@ -1,0 +1,175 @@
+/***************************************/
+
+.article
+    h1
+        font-size                       3.4rem
+        text-transform                  uppercase
+        color                           $color3
+        font-b()
+
+    h2
+        font-size                       3rem
+        color                           $color4
+        font-b()
+
+    h3
+        font-size                       2.4rem
+        text-transform                  uppercase
+        font-l()
+
+    h4
+        font-size                       2.2rem
+        color                           $color5
+        font-sb()
+
+    h5
+        font-size                       2rem
+        font-style                      italic
+        color                           $color6
+        font-b()
+
+    h6
+        font-size                       1.8rem
+        font-l()
+
+    p
+        margin-bottom                   10px
+        font-size                       1.2rem
+
+        &.intro
+            padding                     20px
+            border-radius               0
+            border-radius               3px
+            font-style                  italic
+            color                       $color3
+            font-b()
+
+    ul
+        margin-bottom                   10px
+        list-style                      disc inside
+        font-size                       1.2rem
+
+    li
+        display                         list-item
+        padding-left                    10px
+
+    a
+        color                           $color3
+        text-decoration                 underline
+
+        &:hover
+            text-decoration             none
+
+    table
+        margin                          20px 0 30px 0
+
+        caption
+            margin-bottom               10px
+            text-align                  center
+            text-transform              uppercase
+            font-b()
+
+        thead
+            background-color            $color3
+
+        th
+            font-size                   1.4rem
+            text-align                  left
+            color                       $color2
+            padding                     5px
+            font-b()
+
+        tbody
+            tr:nth-child(odd)
+                background-color        $color8
+
+            tr:nth-child(even)
+                background-color        $color7
+
+            td
+                padding                 5px
+
+        .number
+            text-align                  right
+
+    pre
+        display                         block
+        margin-bottom                   20px
+
+        code
+            display                     block
+            padding                     10px
+            background-color            $color8
+            border                      1px solid $color7
+            border-radius               0
+            margin-bottom               10px
+            border-radius               3px
+            overflow                    auto
+
+
+/* Mediaqueries Tablet ( >= 640px) */
+@media all and ( max-width: $smallScreenContentMinWidth )
+
+    .article
+        table
+            width                       100%
+
+/* Mediaqueries Tablet ( >= 640px) */
+// @media all and ( min-width: $smallScreenContentMaxWidth )
+
+/* Mediaqueries Desktop ( >= 960px) */
+@media all and ( min-width: $mediumScreenContentMaxWidth )
+
+    .article
+        h1
+            font-size                   4rem
+
+        h2
+            font-size                   3.4rem
+
+        h3
+            font-size                   3rem
+
+        h4
+            font-size                   2.8rem
+
+        h5
+            font-size                   2.4rem
+
+        h6
+            font-size                   2rem
+
+        p
+            font-size                   1.4rem
+
+        ul
+            font-size                   1.4rem
+
+        table
+            margin-left                 auto
+            margin-right                auto
+
+            caption
+                font-size               1.8rem
+
+            th
+                padding                 10px
+                border-right            1px solid $color2
+
+                &:last-child
+                    border-right        none
+
+            tbody
+                td
+                    padding             10px
+                    border-right        1px solid $color2
+
+                    &:last-child
+                        border-right    none
+
+        pre
+            code
+                font-size                1.2rem
+
+/* Mediaqueries Large ( >= 1400px) */
+// @media all and ( min-width: $largeScreenContentMaxWidth )

@@ -1,0 +1,19 @@
+{
+    "path": {
+        "resources": {
+            "data"                      : "data/",
+            "js"                        : "js/",
+            "css"                       : "css/",
+            "cssImg"                    : "css/css-img/",
+            "imgNotOptimized"           : "img/img_not_optimized/",
+            "imgOptimized"              : "img/img_optimized/"
+        },
+        "web":  {
+            "base"                      : "../../../public/theme/socle/",
+            "system"                    : "../../../public/theme/socle/system/",
+            "js"                        : "../../../public/theme/socle/assets/js/",
+            "css"                       : "../../../public/theme/socle/assets/css/",
+            "media"                     : "../../../public/theme/socle/assets/media/"
+        }
+    }
+}
