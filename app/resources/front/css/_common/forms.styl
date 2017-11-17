@@ -7,6 +7,10 @@
 .boltforms-row
     margin-bottom                       10px
 
+    &.error
+        .boltforms-value
+            border-color                $errorColor
+
 .boltforms-hidden-row
     display                             none
 
@@ -54,6 +58,10 @@
     textarea
         resize                          vertical
         min-height                      150px
+
+    &:hover
+    &:focus
+        border-color                    $color6
 
 .boltforms-btn-1-row
     text-align                          right

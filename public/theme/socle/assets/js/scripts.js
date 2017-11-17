@@ -31,9 +31,55 @@
 module.exports = ( function ( /*$*/ ) {
 
     function Form( $form ) {
-        var $select;
+        var $select, $required, $email, $error;
 
         $select                         = $form.find( '.boltforms-row select' );
+        $inputs                         = $form.find( '.boltforms-value input, .boltforms-value textarea, .boltforms-value select' );
+        $required                       = $form.find( 'input:required' );
+        $email                          = $form.find( 'input[type="email"]' );
+
+
+        function submitForm( e ) {
+            var isFormValidate;
+
+            isFormValidate              = $form[0].checkValidity();
+
+            if ( !isFormValidate ) {
+                e.preventDefault();
+
+                $inputs.each( function( index, input ) {
+                    var $input, $error, $row,
+                        isInputValidate;
+
+                    $input              = $( input );
+                    $input.required     = $input.attr( 'required' ) === 'required';
+                    $input.email        = $input.attr( 'type' ) === 'email';
+                    $input.phone        = $input.attr( 'data-pattern' ) === 'phone';
+                    $error              = $input.parent( '.boltforms-value' ).prev( '.boltforms-error' );
+                    $row                = $error.parent( '.boltforms-row' );
+
+                    isInputValidate     = $input[0].validity.valid;
+
+                    if ( !isInputValidate ) {
+                        $row.addClass( 'error' );
+
+                        if ( $input.required && !$input.val() && !isInputValidate ) {
+                            $error.html( 'Ce champ ne peut pas être vide.' );
+                        } else if ( $input.email  && !isInputValidate ) {
+                            $error.html( 'Veuillez renseigner une adresse email valide.' );
+                        } else if ( $input.phone  && !isInputValidate ) {
+                            $error.html( 'Veuillez renseigner un numéro de téléphone valide.' );
+                        }
+                    } else {
+                        $row.removeClass( 'error' );
+                        $error.html( '' );
+                    }
+
+                } );
+
+            }
+
+        }
 
         /**
          * Initialize sumo select plugin
@@ -43,6 +89,9 @@ module.exports = ( function ( /*$*/ ) {
             $select.SumoSelect();
 
         } )();
+
+
+        $form.on( 'click', 'button[type="submit"]', submitForm );
 
     }
 

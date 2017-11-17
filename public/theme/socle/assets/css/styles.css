@@ -547,6 +547,9 @@ a.btn-3:hover {
 .boltforms-row {
   margin-bottom: 10px;
 }
+.boltforms-row.error .boltforms-value {
+  border-color: #cf4343;
+}
 .boltforms-hidden-row {
   display: none;
 }
@@ -592,6 +595,10 @@ a.btn-3:hover {
 .boltforms-value textarea {
   resize: vertical;
   min-height: 150px;
+}
+.boltforms-value:hover,
+.boltforms-value:focus {
+  border-color: #888;
 }
 .boltforms-btn-1-row {
   text-align: right;
