@@ -5,29 +5,85 @@
  #   data     — POSTed data
  #   metadata — Form meta data
  #}
- <table>
-     <tbody>
-         <tr class="m-header">
-             <strong>
-                 Bolt Socle
-             </strong>
-         </tr>
-         <tr class="m-content">
-             <table>
-                 <tbody>
-                     <tr>
-                         <p>Bonjour,</p>
-                         <p>Quelqu'un vient d'utiliser le formulaire de contact sur la page {{ paths.currenturl }}.</p>
-                         <p>Voici les informations recueillies : </p>
-                     </tr>
-                     <tr>
-                         {{ block('submission_summary', '@BoltForms/email/_blocks.twig') }}
-                     </tr>
-                 </tbody>
-             </table>
-         </tr>
-         <tr class="m-footer">
-             © {{ ("now"|date("Y") == "2017" ? '' : "now"|date("Y") ~ " - ") }}{{ "now"|date("Y") }} | <a href="{{ url('homepage') }}" class="sf-lnk">www.bolt-socle.fr</a>
-         </tr>
-     </tbody>
- </table>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+     <head>
+         <meta name="viewport" content="width=device-width" />
+         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+         <title>
+                 Bolt Scole - Contact depuis le site
+         </title>
+         <!--[if gte mso 9]>
+             <xml>
+                 <o:OfficeDocumentSettings>
+                     <o:AllowPNG/>
+                     <o:PixelsPerInch>96</o:PixelsPerInch>
+                 </o:OfficeDocumentSettings>
+             </xml>
+         <![endif]-->
+     </head>
+     <body style="margin:0px;padding:0px;font-family:Arial,Trebuchet MS,Helvetica,sans-serif;-webkit-text-size-adjust:none;background-color:#ffffff;">
+         <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#cccccc" style="padding:20px 0px;">
+             <tbody>
+                 <tr>
+                     <td align="center">
+                         <table width="640" cellpadding="0" cellspacing="0" border="1" bgcolor="#ffffff">
+                             <tbody>
+                                 <tr class="m-header" style="background-color:#cccccc;">
+                                     <td width="15px" style="width:15px;">
+                                         <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                     </td>
+                                    <td width="100%" height="50">
+                                        <strong>
+                                            Bolt Socle
+                                        </strong>
+                                    </td>
+                                    <td width="15px" style="width:15px;">
+                                        <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                    </td>
+                                </tr>
+                                <tr class="m-content">
+                                    <td width="15px" style="width:15px;">
+                                        <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                    </td>
+                                     <td>
+                                         <table>
+                                             <tbody>
+                                                 <tr>
+                                                     <td>
+                                                         <p>Bonjour,</p>
+                                                         <p>Quelqu'un vient d'utiliser le formulaire de contact sur la page {{ paths.currenturl }}.</p>
+                                                         <p>Voici les informations recueillies : </p>
+                                                     </td>
+                                                 </tr>
+                                                 <tr>
+                                                     <td>
+                                                         {#{ block('submission_summary', '@BoltForms/email/_blocks.twig') }#}
+                                                     </td>
+                                                 </tr>
+                                             </tbody>
+                                         </table>
+                                     </td>
+                                     <td width="15px" style="width:15px;">
+                                         <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                     </td>
+                                 </tr>
+                                 <tr class="m-footer">
+                                     <td width="15px" style="width:15px;">
+                                         <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                     </td>
+                                     <td>
+                                         © {{ ("now"|date("Y") == "2017" ? '' : "now"|date("Y") ~ " - ") }}{{ "now"|date("Y") }} | <a href="{{ url('homepage') }}" class="sf-lnk">www.bolt-socle.fr</a>
+                                     </td>
+                                     <td width="15px" style="width:15px;">
+                                         <img src="img/spacer.gif" alt="" width="15" style="display:block;" style="width:15px;" />
+                                     </td>
+                                 </tr>
+                             </tbody>
+                         </table>
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+     </body>
+ </html>
