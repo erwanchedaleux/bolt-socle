@@ -28,17 +28,20 @@
 
 },{"./scripts/init/main.js":4}],2:[function(require,module,exports){
 /* global jQuery */
-module.exports = ( function ( /*$*/ ) {
+module.exports = ( function ( $ ) {
 
     function Form( $form ) {
-        var $select, $required, $email, $error;
+        var $select, $inputs;
 
         $select                         = $form.find( '.boltforms-row select' );
         $inputs                         = $form.find( '.boltforms-value input, .boltforms-value textarea, .boltforms-value select' );
-        $required                       = $form.find( 'input:required' );
-        $email                          = $form.find( 'input[type="email"]' );
 
 
+        /**
+         * [submitForm description]
+         * @param  {[type]} e [description]
+         * @return {[type]}   [description]
+         */
         function submitForm( e ) {
             var isFormValidate;
 
