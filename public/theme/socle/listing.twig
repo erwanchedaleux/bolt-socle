@@ -1,57 +1,50 @@
 {% extends '_extended_base.twig' %}
 
+{% set meta_title_override = 'Liste des pages' %}
+{% set meta_description_override = 'Description de la liste des pages' %}
+
 {% block content %}
 
     <div class="site-content listing">
         <div class="inner">
-
-            {# This template is used for 'listings': Generic pages that list a number of
-               records from a certain contenttype. These records are available as an array
-               called 'records'. In the for-loop below, we iterate over the records that
-               are on this page. It can be used for overview pages like 'all entries', or
-               'all records tagged with kittens'. #}
-
-            {# If used for listing a taxonomy, we add a heading.: #}
-            {% if taxonomytype is defined %}
-                <h1>
-                    {{ __('general.phrase.overview-for') }}
-                    {% if taxonomy.options[slug] is defined %}
-                        {{ taxonomy.options[slug] }}
-                    {% else %}
-                        {{ slug }}
+            <div class="l-head article">
+                <h1>Toutes les pages</h1>
+                {% set records_length = '' %}
+                {% for record in records %}
+                    {% if record.robots == 1 %}
+                        {% set records_length = loop.index %}
                     {% endif %}
-                </h1>
-                {# Taxonomies are fetched unordered by design except if 'has_sortorder'
-                   is set to true. This way we keep 'grouping' intact in the listing. #}
-                {% if not taxonomy.has_sortorder %}
-                    {# If we specified an order in config.yml, sort them here, accordingly: #}
-                    {% set records = records|order(config.get('general/listing_sort')) %}
-                {% endif %}
-            {% endif %}
-
+                {% endfor %}
+                <h2>{{ records_length }} pages trouvées</h2>
+                <p class="l-intro">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
             <ul class="l-list">
                 {% for record in records %}
-                    <li class="l-itm">
-                        <a href="{{ record.link }}" class="l-lnk">
-                            <div class="l-wrapper-img">
-                                {% if record.image is not empty %}
-                                    <img srcset="{{ thumbnail(record.image, 300, 200) ~ '?' ~ version }} 300w,
-                                                 {{ thumbnail(record.image, 600, 400) ~ '?' ~ version }} 600w"
-                                         sizes="(max-width:639px) 300px, (min-width:640px) 300px"
-                                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                         alt=""
-                                         class="l-img">
-                                {% else %}
-                                    <div class="l-default-img"></div>
-                                {% endif %}
-                            </div>
-                            <div class="l-content">
-                                <h2 class="l-title-1">{{ record.title }}</h2>
-                                {# display something introduction-like.. #}
-                                <p>{{ record.excerpt(300, false, search|default('')) }}</p>
-                            </div>
-                        </a>
-                    </li>
+                    {% if record.robots == 1 %}
+                        <li class="l-itm">
+                            <a href="{{ record.link }}" class="l-lnk">
+                                <div class="l-wrapper-img">
+                                    {% if record.image is not empty %}
+                                        <img srcset="{{ thumbnail(record.image, 300, 200) ~ '?' ~ version }} 300w,
+                                                     {{ thumbnail(record.image, 600, 400) ~ '?' ~ version }} 600w"
+                                             sizes="(max-width:639px) 300px, (min-width:640px) 300px"
+                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                             alt=""
+                                             class="l-img">
+                                    {% else %}
+                                        <div class="l-default-img"></div>
+                                    {% endif %}
+                                </div>
+                                <div class="l-content">
+                                    <h2 class="l-title-1">{{ record.title }}</h2>
+                                    {# display something introduction-like.. #}
+                                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endif %}
                 {% else %}
                     <li class="l-itm-no-result">
                         <h2 class="l-title-1-no-result">{{ __('general.phrase.no-content-found') }}</h2>

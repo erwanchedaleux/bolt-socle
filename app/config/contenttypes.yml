@@ -34,6 +34,10 @@ pages:
         panel:
             type: checkbox
             label: "Afficher le panneau du bas"
+        robots:
+            type: checkbox
+            label: "référencer cette page"
+            default: 1
         image_hero:
             group: Hero
             label: Image

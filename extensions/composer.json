@@ -18,7 +18,7 @@
     "name": "bolt/extensions",
     "prefer-stable": true,
     "provide": {
-        "bolt/bolt": "3.4.0"
+        "bolt/bolt": "3.4.1"
     },
     "repositories": {
         "packagist": false,
@@ -28,7 +28,8 @@
         }
     },
     "require": {
-        "bolt/boltforms": "^4.1"
+        "bolt/boltforms": "^4.1",
+        "hellonico/minify-html": "^0.1.2"
     },
     "scripts": {
         "post-autoload-dump": "Bolt\\Composer\\EventListener\\PackageEventListener::dump",

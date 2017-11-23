@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8481e5f09a0d528a2fe0b0d9a154bb1",
+    "content-hash": "74f6f04674f77ddf1a23a4f9b4c900ec",
     "packages": [
         {
             "name": "bolt/boltforms",
@@ -176,6 +176,61 @@
                 "issues": "https://github.com/google/recaptcha/issues"
             },
             "time": "2017-03-09T18:44:34+00:00"
+        },
+        {
+            "name": "hellonico/minify-html",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nlemoine/bolt-extension-minify-html.git",
+                "reference": "01637613ab55a1bcb709b131b36777c07b5bac0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nlemoine/bolt-extension-minify-html/zipball/01637613ab55a1bcb709b131b36777c07b5bac0d",
+                "reference": "01637613ab55a1bcb709b131b36777c07b5bac0d",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "require-dev": {
+                "wyrihaximus/html-compress": "^1.2.1"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-class": "Bolt\\Extension\\Hellonico\\MinifyHtml\\MinifyHtmlExtension",
+                "bolt-icon": "minify-html-icon.png"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Hellonico\\MinifyHtml\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lemoine",
+                    "email": "dev@helloni.co"
+                }
+            ],
+            "description": "Minify HTML",
+            "keywords": [
+                "compress",
+                "compress html",
+                "compression",
+                "html",
+                "minification",
+                "minify",
+                "minify html"
+            ],
+            "support": {
+                "source": "https://github.com/nlemoine/bolt-extension-minify-html/tree/master",
+                "issues": "https://github.com/nlemoine/bolt-extension-minify-html/issues"
+            },
+            "time": "2017-09-05T08:24:49+00:00"
         }
     ],
     "packages-dev": [],

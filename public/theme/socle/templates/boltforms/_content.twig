@@ -1,0 +1,102 @@
+{% block submission_summary %}
+    <ul style="list-style:none;margin:0 0 30px 0;padding:0;">
+        {% if data is defined %}
+            {%- for fieldname, values in data %}
+                {%- set field = attribute(fields, fieldname) %}
+                {%- set label = field.options.label|default(fieldname) %}
+
+                {% if loop.last %}
+                    <li style="display:block;margin-bottom:5px;margin-left:0;padding-top:2px;">
+                {% else %}
+                    <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px;">
+                {% endif %}
+                    {%- if values is iterable %}
+                        {{ block('field_label') }}
+                        {{ block('value_array') }}
+                    {% elseif values.timestamp is defined %}
+                        {%- set value = values %}
+                        {{ block('field_label') }}{{ block('field_date') }}
+                    {%- else %}
+                        {%- set value = values %}
+                        {{ block('field_label') }}{{ block('field_value') }}
+                    {%- endif %}
+                </li>
+            {%- endfor %}
+        {% else %}
+            <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Nom</strong></span>
+                <span>Doe</span>
+            </li>
+            <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Prénom</strong></span>
+                <span>John</span>
+            </li>
+            <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Adresse e-mail</strong></span>
+                <span><a href="mailto:erwan.chedaleux@gmail.com">john.doe@gmail.com</a></span>
+            </li>
+            <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Numéro de téléphone</strong></span>
+                <span>0606060606</span>
+            </li>
+            <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Sujet</strong></span>
+                <span>Lorem Ipsum</span>
+            </li>
+            <li style="display:block;margin-bottom:5px;margin-left:0;padding-top:2px">
+                <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Message</strong></span>
+                <p style="display:inline-block;margin:0">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block field_label %}
+    {%- if label is not empty %}
+         <span style="display:inline-block;width:150px;margin-bottom:3px;"><strong>{{ label }}</strong></span>{% endif %}
+{% endblock %}
+
+{% block field_value %}
+    {% if field.type == 'textarea' %}
+        <p style="display:inline-block;margin:0;">
+            {{- value }}
+        </p>
+    {% else %}
+        <span>{{- value }}</span>
+    {% endif %}
+{% endblock %}
+
+{% block field_date %}
+    {{- value|date() }}
+{% endblock %}
+
+{% block file_field_value %}
+    {%  if value == '' %}
+        {{ name }}
+    {% else %}
+        <a href="{{ value }}">{{ name }}</a>
+    {% endif %}
+{% endblock %}
+
+{% block value_array %}
+    <ul>
+        {%- for name, value in values %}
+            {%- if value is iterable %}
+                {{ block('value_array') }}
+            {%- else %}
+
+                <li>
+                    {%- if field.type == 'file' %}
+                        {{ block('file_field_value') }}
+                    {%- else %}
+                        {{ block('field_value') }}
+                    {%- endif %}
+                </li>
+
+            {%- endif %}
+        {%- endfor %}
+
+    </ul>
+{% endblock %}

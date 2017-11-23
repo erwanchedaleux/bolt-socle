@@ -7,8 +7,8 @@
     {%- set debug = config.get('general/debug') %}
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
-    {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : '') %}
-    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : '') %}
+    {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : (meta_title_override is defined ? meta_title_override|striptags : '')) %}
+    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '')) %}
     {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
     {%- set current_url = canonical() %}
     {%- set site_logo = 'logo-bolt' %}
@@ -54,15 +54,25 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="address=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="msapplication-TileImage" content="{{ asset('assets/media/img/apple-touch-icon-114.png', 'theme', true, version) }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
     <meta http-equiv="cleartype" content="on">
 
-    <link rel="shortcut icon" href="{{ asset('assets/media/img/favicon.png', 'theme', true, version) }}" type="image/png">
-    <link rel="apple-touch-icon" href="{{ asset('assets/media/img/apple-touch-icon-144.png', 'theme', true, version) }}" sizes="144x144">
-    <link rel="apple-touch-icon" href="{{ asset('assets/media/img/apple-touch-icon-114.png', 'theme', true, version) }}" sizes="114x114">
-    <link rel="apple-touch-icon" href="{{ asset('assets/media/img/apple-touch-icon-72.png', 'theme', true, version) }}" sizes="72x72">
-    <link rel="apple-touch-icon" href="{{ asset('assets/media/img/apple-touch-icon-57.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/media/img/apple-icon-57x57.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/media/img/apple-icon-60x60.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/media/img/apple-icon-72x72.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/media/img/apple-icon-76x76.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/media/img}/apple-icon-114x114.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/media/img}/apple-icon-120x120.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/media/img/apple-icon-144x144.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/media/img/apple-icon-152x152.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/img/apple-icon-180x180.png', 'theme', true, version) }}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/media/img/android-icon-192x192.png', 'theme', true, version) }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/media/img/favicon-32x32.png', 'theme', true, version) }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/media/img/favicon-96x96.png', 'theme', true, version) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/img//favicon-16x16.png', 'theme', true, version) }}">
+    <link rel="manifest" href="{{ asset('system/manifest.json', 'theme', true, version) }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('assets/media/img/ms-icon-144x144.png', 'theme', true, version) }}">
+    <meta name="theme-color" content="#ffffff">
 
     {# OLD BROWSER REDIRECT #}
     {%- block old_browser -%}

@@ -25,6 +25,9 @@ body
         display                         block
         height                          $footerHeight
 
+    & > div:not(.site-header)
+        opacity                         0
+
 .site-content
     padding                             10px 0
 
@@ -55,6 +58,7 @@ body
         &:after
             height                      $footerHeightTablet
 
+
     .js-nav-mobile-opened
         #main
             transform                   translateX(-50%)
@@ -68,6 +72,9 @@ body
 
         &:after
             height                      $footerHeightDesktop
+
+        & > div:not(.site-header)
+            opacity                     1
 
     .site-content
         padding                         20px 0

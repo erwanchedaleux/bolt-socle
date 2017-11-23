@@ -9,9 +9,9 @@ module.exports = ( function ( $ ) {
 
 
         /**
-         * [submitForm description]
-         * @param  {[type]} e [description]
-         * @return {[type]}   [description]
+         * Prevent default if if form submission is invalid
+         * @param  {Event} e
+         * @return {void}
          */
         function submitForm( e ) {
             var isFormValidate;

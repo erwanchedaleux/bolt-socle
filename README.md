@@ -46,6 +46,9 @@ Install procedure
   * After the packages have downloaded, you can choose whether you would like a
   separate public directory and if so choose a name.
   * More informations at http://docs.bolt.cm/
+  * Extensions
+    * boltforms
+    * minify-html
 2. Front
   * Place to `/app/resources/front` on your terminal
   * After install and configure nodeJS and npm, run the following commands :

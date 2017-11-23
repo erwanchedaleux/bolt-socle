@@ -19,6 +19,7 @@ app/database/
 cache/
 thumbs/
 vendor/
+!app/resources/front/js/vendor/
 
 # NPM, Gulp and Grunt stuff
 node_modules
