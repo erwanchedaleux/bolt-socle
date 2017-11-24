@@ -1,10 +1,10 @@
-Bolt Socle
+Westinnova
 ========================
 
 Features
 --------------
 ***
-  * Bolt CMS
+  * Westinnova
   * Front-End architecture with `Gulp` task runner and `npm` package manager
 
 
@@ -16,6 +16,10 @@ Specifications
     * Change twitter_name variable in `/app/config/config.yml` file _(line 15)_
     * Change mats robots in `/app/config/config.yml` file _(line 16)_
     * Change mailoptions password variable of mail client in `/app/config/config.yml` file _(line 348)_
+    * In `/app/resources/front/package.json` file, replace `socle` namespace by
+    the good values of your new theme
+    * In `/app/resources/front/config.json` file, change the theme namespace,
+    replace `socle` by the name of your new theme
 
 
 Instances

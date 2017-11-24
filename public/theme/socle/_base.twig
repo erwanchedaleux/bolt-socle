@@ -23,7 +23,7 @@
 
     <title>{% block title %}{{ meta_title }}{% endblock %}</title>
     <meta name="description" content="{{ meta_description }}">
-    <meta name="robots" content="{{ config.get('general/robots') }}">
+    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 ? 'noindex, nofollow' : config.get('general/robots')) }}">
 
     {# OPENGRAPH #}
     {%- block opengraph_meta -%}

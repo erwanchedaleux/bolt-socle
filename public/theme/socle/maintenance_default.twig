@@ -1,0 +1,26 @@
+{% extends '_error_base.twig' %}
+
+{% block content %}
+
+    <div class="site-error">
+        <div class="inner">
+            <div class="sc-errors sc-old-browser">
+                <div class="sc-errors-logo">
+                    <img src="{{ asset('assets/media/img/' ~ site_logo ~ '-135.png', 'theme', true, version) }}"
+                         alt="{{ config.get('general/sitename') }}"
+                         class="sce-img">
+                </div>
+                <h1 class="sc-errors-title-1">
+                    Site en maintenance
+                </h1>
+                <div class="sc-errors-teaser">
+                    <p>
+                        {{ config.get('general/sitename') }} est actuellement hors ligne, car nous procédons à des opérations de maintenance. <br />
+                        Merci de patienter, nous allons revenir dans quelques minutes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

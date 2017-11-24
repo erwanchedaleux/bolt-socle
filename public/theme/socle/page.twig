@@ -2,18 +2,20 @@
 
 {% block content %}
 
-    {% if record.image != "" %}
-        {% include 'partials/_hero.twig' with {'img': record.image, 'baseline': record.image_hero_baseline, 'btn': record.image_hero_button} %}
-    {% endif %}
-    <div class="site-content article">
-        <div class="inner">
-            <div class="sc-teaser">
-                {{ record.teaser }}
-            </div>
-            <div class="sc-body">
-                {{ record.body }}
+    {% if record is defined %}
+        {% if record.image != "" %}
+            {% include 'partials/_hero.twig' with {'img': record.image, 'baseline': record.image_hero_baseline, 'btn': record.image_hero_button} %}
+        {% endif %}
+        <div class="site-content article">
+            <div class="inner">
+                <div class="sc-teaser">
+                    {{ record.teaser }}
+                </div>
+                <div class="sc-body">
+                    {{ record.body }}
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 
 {% endblock content %}

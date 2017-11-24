@@ -14,7 +14,7 @@ public/bolt-public/
 app/config/*_local.yml
 
 # SQLite databases should not go into git
-app/database/
+app/database/*.db
 
 cache/
 thumbs/
