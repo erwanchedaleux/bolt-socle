@@ -30,3 +30,9 @@ thumbnails:
         hero_desktop_2400:
             size: [2400,990]
             cropping: crop
+        hero_og:
+            size: [1200,630]
+            cropping: crop
+        hero_twitter:
+            size: [876,438]
+            cropping: crop

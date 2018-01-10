@@ -11,7 +11,13 @@
                 <h1>Toutes les pages</h1>
                 {% set records_length = '' %}
                 {% for record in records %}
-                    {% if record.robots == 1 %}
+                    {% set robots = false %}
+                    {% for key, value in record.seo|json_decode() %}
+                        {% if key == 'robots' and value == 'index, follow' %}
+                            {% set robots = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if robots %}
                         {% set records_length = loop.index %}
                     {% endif %}
                 {% endfor %}
@@ -22,7 +28,13 @@
             </div>
             <ul class="l-list">
                 {% for record in records %}
-                    {% if record.robots == 1 %}
+                    {% set robots = false %}
+                    {% for key, value in record.seo|json_decode() %}
+                        {% if key == 'robots' and value == 'index, follow' %}
+                            {% set robots = true %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if robots %}
                         <li class="l-itm">
                             <a href="{{ record.link }}" class="l-lnk">
                                 <div class="l-wrapper-img">
@@ -58,7 +70,7 @@
             </ul>
 
             {# If there are more records than will fit on one page, the pager is shown. #}
-            {{ pager(template = 'partials/_pagination.twig') }}
+            {{ pager('', 1, 'partials/_pagination.twig') }}
 
         </div>
     </div>

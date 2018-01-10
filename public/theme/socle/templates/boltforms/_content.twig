@@ -33,7 +33,7 @@
             </li>
             <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
                 <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Adresse e-mail</strong></span>
-                <span><a href="mailto:erwan.chedaleux@gmail.com">john.doe@gmail.com</a></span>
+                <span><a href="mailto:erwan.chedaleux@gmail.com" style="color:#1f7c9a;text-decoration:none;">john.doe@gmail.com</a></span>
             </li>
             <li style="display:block;margin-bottom:5px;margin-left:0;border-bottom:1px solid #cccccc;padding-bottom:5px;padding-top:2px">
                 <span style="display:inline-block;width:150px;margin-bottom:3px"><strong>Numéro de téléphone</strong></span>
@@ -76,7 +76,7 @@
     {%  if value == '' %}
         {{ name }}
     {% else %}
-        <a href="{{ value }}">{{ name }}</a>
+        <a href="{{ value }}" style="color:#1f7c9a;text-decoration:none;">{{ name }}</a>
     {% endif %}
 {% endblock %}
 

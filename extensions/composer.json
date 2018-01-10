@@ -18,7 +18,7 @@
     "name": "bolt/extensions",
     "prefer-stable": true,
     "provide": {
-        "bolt/bolt": "3.4.1"
+        "bolt/bolt": "3.4.6"
     },
     "repositories": {
         "packagist": false,
@@ -28,7 +28,10 @@
         }
     },
     "require": {
+        "bobdenotter/seo": "^1.0",
         "bolt/boltforms": "^4.1",
+        "bolt/robots": "^1.0",
+        "bolt/sitemap": "^2.2",
         "hellonico/minify-html": "^0.1.2"
     },
     "scripts": {
