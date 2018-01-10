@@ -11,7 +11,7 @@
          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
          <title>
-                 Bolt Scole - Contact depuis le site
+                 Bolt Socle - Contact depuis le site
          </title>
          <!--[if gte mso 9]>
              <xml>
@@ -36,18 +36,16 @@
                                  <tbody>
                                      <!-- HEADER -->
                                      <tr class="m-header" style="background-color:#E6ECEF;">
-                                        <td style="height:50px;" colspan="3">
+                                        <td style="height:80px;" colspan="3">
                                             <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <img src="{{ asset('assets/media/img/logo-bolt-30.png', 'theme', true) }}"
-                                                                 alt="{{ config.get('general/sitename') }}" />
+                                                            <img src="{{ asset('assets/media/img/logo-bolt-50.png', 'theme', true) }}"
+                                                                 alt="Bolt Socle" />
                                                         </td>
                                                         <td>
-                                                            <span style="font-size:18px;text-transform:uppercase;line-height:20px;margin-left:10px;color:#39393b;">
-                                                                Bolt Socle
-                                                            </span>
+                                                            <span style="text-transform:uppercase;font-waight:bold;margin-left:10px;font-size:22px;">Bolt Socle</span>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -76,8 +74,8 @@
                                                      <tr>
                                                          <td>
                                                              <p>Bonjour,</p>
-                                                             <p>Quelqu'un vient d'utiliser le formulaire de contact sur la page <a href="{{ paths.currenturl }}" style="color:#1f7c9a;text-decoration:none;">contact</a> de votre site.</p>
-                                                             <p>Voici les informations recueillies : </p>
+                                                             <p>Une personne vient d'utiliser le formulaire de contact sur la page <a href="{{ paths.currenturl }}" style="color:#1f7c9a;text-decoration:none;">contact</a> de votre site.</p>
+                                                             <p>Voici les informations recueillies : </p><br />
                                                          </td>
                                                      </tr>
                                                      <tr>
@@ -98,12 +96,12 @@
                                          </td>
                                      </tr>
                                      <!-- FOOTER -->
-                                     <tr class="m-footer" style="background-color:#1f7c9a;">
+                                     <tr class="m-footer" style="background-color:#39393b;">
                                          <td style="width:30px;border-left:1px solid #dfe1e2;">
                                              <img src="{{ asset('assets/media/img/spacer.gif', 'theme', true) }}" alt="" width="30" style="display:block;width:30px;" />
                                          </td>
                                          <td style="height:50px;color:#ffffff;font-size:12px;">
-                                             © {{ ("now"|date("Y") == "2017" ? '' : "now"|date("Y") ~ " - ") }}{{ "now"|date("Y") }} | <a href="{{ url('homepage') }}" style="color:#ffffff;">{{ url('homepage') }}</a>
+                                             © {{ ("now"|date("Y") == "2018" ? '' : "2018 - ") }}{{ "now"|date("Y") }} | <a href="{{ url('homepage') }}" style="color:#ffffff;text-decoration:none;">{{ url('homepage') }}</a>
                                          </td>
                                          <td style="width:30px;border-right:1px solid #dfe1e2;">
                                              <img src="{{ asset('assets/media/img/spacer.gif', 'theme', true) }}" alt="" width="30" style="display:block;width:30px;" />
@@ -121,7 +119,8 @@
                                      <tr>
                                          <td>
                                              <p style="color:#c4c4c4;font-size:12px;text-align:center;">
-                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                 © {{ ("now"|date("Y") == "2018" ? '' : "2018 - ") }}{{ "now"|date("Y") }} - Bolt Socle<br />
+                                                 Cette notification vous a été envoyée automatiquement afin de vous informer d'une demande de contact sur le site <a href="{{ url('homepage') }}" style="color:#1f7c9a;text-decoration:none;">{{ url('homepage') }}</a>.
                                              </p>
                                          </td>
                                      </tr>

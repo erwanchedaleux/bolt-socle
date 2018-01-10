@@ -53,7 +53,15 @@ contentlisting:
 # ------------------------------------------------------------------------------
 # Place your own routes here, that have a LOWER priority than the default routes.
 
+sitemap:
+    path: /sitemap
+    defaults:
+        _controller: sitemap.controller:sitemap
 
+sitemapXml:
+    path: /sitemap.xml
+    defaults:
+        _controller: sitemap.controller:sitemapXml
 
 # ------------------------------------------------------------------------------
 # Routes examples:

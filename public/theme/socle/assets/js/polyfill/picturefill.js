@@ -1,7 +1,7 @@
 /*!
  *  Bolt Socle
  *  @author: Erwan Chedaleux
- *  @version: 0.1.1
+ *  @version: 1.0.0
  *  
  *  Thanks to 
  *

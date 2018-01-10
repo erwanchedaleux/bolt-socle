@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74f6f04674f77ddf1a23a4f9b4c900ec",
+    "content-hash": "38f15e39bf3db6dc608e614d8b56afb7",
     "packages": [
+        {
+            "name": "bobdenotter/seo",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobdenotter/seo.git",
+                "reference": "7ea8c3dbcb4a2c5e4fb92f292670ad946571485a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobdenotter/seo/zipball/7ea8c3dbcb4a2c5e4fb92f292670ad946571485a",
+                "reference": "7ea8c3dbcb4a2c5e4fb92f292670ad946571485a",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-assets": "web",
+                "bolt-class": "Bolt\\Extension\\BobdenOtter\\Seo\\SeoExtension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\BobdenOtter\\Seo\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob den Otter",
+                    "email": "bob@twokings.nl"
+                }
+            ],
+            "description": "An extension to easily manage SEO title, meta description and OG tags.",
+            "support": {
+                "source": "https://github.com/bobdenotter/seo/tree/1.0.6",
+                "issues": "https://github.com/bobdenotter/seo/issues"
+            },
+            "time": "2017-11-02T13:10:16+00:00"
+        },
         {
             "name": "bolt/boltforms",
             "version": "v4.1.14",
@@ -127,6 +170,112 @@
                 "source": "https://github.com/bolt/bolt-extension-email-spooler/tree/master"
             },
             "time": "2017-04-27T10:11:16+00:00"
+        },
+        {
+            "name": "bolt/robots",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/bolt-extension-robots.git",
+                "reference": "649076c15c19023b924721786efbe9f6653e8fb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/bolt-extension-robots/zipball/649076c15c19023b924721786efbe9f6653e8fb7",
+                "reference": "649076c15c19023b924721786efbe9f6653e8fb7",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-class": "Bolt\\Extension\\Bolt\\Robots\\RobotsExtension",
+                "bolt-icon": "icon-robots.txt.png",
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bolt\\Robots\\": "src"
+                }
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Gawain Lynch",
+                    "email": "gawain.lynch@gmail.com"
+                }
+            ],
+            "description": "Simple interface to manage generated robots.txt files",
+            "keywords": [
+                "Google",
+                "SEO",
+                "robots.txt"
+            ],
+            "support": {
+                "source": "https://github.com/bolt/bolt-extension-robots/tree/v1.0.1",
+                "issues": "https://github.com/bolt/bolt-extension-robots/issues"
+            },
+            "time": "2017-04-01T15:29:21+00:00"
+        },
+        {
+            "name": "bolt/sitemap",
+            "version": "2.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bolt/Sitemap.git",
+                "reference": "6f9630daa9d6f8d7f06b2483c2444d780b3ffe7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bolt/Sitemap/zipball/6f9630daa9d6f8d7f06b2483c2444d780b3ffe7d",
+                "reference": "6f9630daa9d6f8d7f06b2483c2444d780b3ffe7d",
+                "shasum": ""
+            },
+            "require": {
+                "bolt/bolt": "^3.0"
+            },
+            "type": "bolt-extension",
+            "extra": {
+                "bolt-icon": "icon-sitemap.png",
+                "bolt-class": "Bolt\\Extension\\Bolt\\Sitemap\\SitemapExtension"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bolt\\Extension\\Bolt\\Sitemap\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bob den Otter",
+                    "email": "bob@twokings.nl"
+                },
+                {
+                    "name": "Patrick van Kouteren",
+                    "email": "info@wedesignit.nl"
+                },
+                {
+                    "name": "Gawain Lynch",
+                    "email": "gawain.lynch@gmail.com"
+                }
+            ],
+            "description": "An extension to create XML sitemaps for your Bolt website.",
+            "keywords": [
+                "SEO",
+                "sitemap"
+            ],
+            "support": {
+                "source": "https://github.com/bolt/Sitemap/tree/2.2.3",
+                "issues": "https://github.com/bolt/Sitemap/issues"
+            },
+            "time": "2017-06-19T12:58:13+00:00"
         },
         {
             "name": "google/recaptcha",

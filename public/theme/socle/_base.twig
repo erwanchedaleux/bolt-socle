@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}" class="no-js">
 <head>
+    {%- set debug = config.get('general/debug') %}
+    {% set dev_mode = ('dev.bolt-socle' in canonical() ? 'true' : 'false') %}
+    {%- set maintenance = config.get('general/maintenance_mode') %}
+    {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
+    {%- set site_title = config.get('general/sitename') %}
+    {%- set meta_title = (meta_title_override is defined ? meta_title_override|striptags : (seo.title() is defined ? seo.title() : '')) %}
+    {%- set meta_description = (meta_description_override is defined ? meta_description_override|striptags : (seo.description() is defined ? seo.description() : '')) %}
+    {%- set meta_keywords = config.get('general/meta_keywords') %}
+    {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
+    {%- set twitter_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_twitter'), 'theme', true, version) : '' ) %}
+    {%- set og_image = (record.image is defined and record.image is not empty ? asset(thumbnail(record.image, 'hero_og'), 'theme', true, version) : '' ) %}
+    {%- set current_url = canonical() %}
+    {%- set site_logo = 'logo-bolt' %}
+    {%- if not debug and dev_mode == 'false' -%}
+        {# Googke Tag Manager #}
+    {%- endif -%}
+
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    {%- set debug = config.get('general/debug') %}
-    {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
-    {%- set site_title = config.get('general/sitename') %}
-    {%- set meta_title = (record.meta_title is defined ? record.meta_title|striptags : (meta_title_override is defined ? meta_title_override|striptags : '')) %}
-    {%- set meta_description = (record.meta_description is defined ? record.meta_description|striptags : (meta_description_override is defined ? meta_description_override|striptags : '')) %}
-    {%- set twitter_name = (config.get('general/twitter_name') ? config.get('general/twitter_name') : '') %}
-    {%- set current_url = canonical() %}
-    {%- set site_logo = 'logo-bolt' %}
-
-    {%- if meta_title is not empty -%}
-        {% set meta_title = meta_title ~  ' | ' ~ site_title %}
-    {%- elseif record.title is defined -%}
-        {% set meta_title =  record.title|striptags ~ ' | ' ~ site_title %}
-    {%- else -%}
-        {% set meta_title = site_title ~  ' | ' ~ config.get('general/payoff') %}
-    {%- endif %}
-
-    <title>{% block title %}{{ meta_title }}{% endblock %}</title>
-    <meta name="description" content="{{ meta_description }}">
-    <meta name="robots" content="{{ (record.robots is defined and record.robots == 0 ? 'noindex, nofollow' : config.get('general/robots')) }}">
+    <title>{{ meta_title|raw }}</title>
+    {%- if not debug and dev_mode == 'false' -%}
+        {# Meta Google site verification #}
+    {%- endif -%}
+    <meta name="description" content="{{ meta_description|raw }}">
+    <meta name="keywords" content="{{ meta_keywords }}">
+    <meta name="robots" content="{{ (seo.robots is not defined or maintenance ? 'noindex, nofollow' : seo.robots) }}">
 
     {# OPENGRAPH #}
     {%- block opengraph_meta -%}
-    <meta property="og:site_name" content="{{ site_title }}">
+    <meta property="og:site_name" content="{{ site_title|raw }}">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ current_url }}">
     <meta property="og:title" content="{{ meta_title }}">
-    <meta property="og:description" content="{{ meta_description }}">
-    <meta property="og:image" content="">
+    <meta property="og:description" content="{{ meta_description|raw }}">
+    <meta property="og:image" content="{{ og_image }}">
     {% endblock opengraph_meta %}
 
     {# TWITTER #}
@@ -43,8 +47,8 @@
     <meta name="twitter:site" content="@{{ twitter_name }}">
     <meta name="twitter:url" content="{{ current_url }}">
     <meta name="twitter:title" content="{{ meta_title }}">
-    <meta name="twitter:description" content="{{ meta_description }}">
-    <meta name="twitter:image" content="">
+    <meta name="twitter:description" content="{{ meta_description|raw }}">
+    <meta name="twitter:image" content="{{ twitter_image }}">
     {% endif %}
     {% endblock twitter_meta %}
 
@@ -56,22 +60,32 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="cleartype" content="on">
 
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="cleartype" content="on">
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ asset('/sitemap.xml', 'theme', true, version) }}" />
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/media/img/apple-icon-57x57.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/media/img/apple-icon-60x60.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/media/img/apple-icon-72x72.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/media/img/apple-icon-76x76.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/media/img}/apple-icon-114x114.png', 'theme', true, version) }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/media/img}/apple-icon-120x120.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/media/img/apple-icon-114x114.png', 'theme', true, version) }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/media/img/apple-icon-120x120.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/media/img/apple-icon-144x144.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/media/img/apple-icon-152x152.png', 'theme', true, version) }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/media/img/apple-icon-180x180.png', 'theme', true, version) }}">
     <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/media/img/android-icon-192x192.png', 'theme', true, version) }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/media/img/favicon-32x32.png', 'theme', true, version) }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/media/img/favicon-96x96.png', 'theme', true, version) }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/img//favicon-16x16.png', 'theme', true, version) }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/media/img/favicon-16x16.png', 'theme', true, version) }}">
     <link rel="manifest" href="{{ asset('system/manifest.json', 'theme', true, version) }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="{{ asset('assets/media/img/ms-icon-144x144.png', 'theme', true, version) }}">
+    <meta name="msapplication-tap-highlight" content="no"/>
     <meta name="theme-color" content="#ffffff">
 
     {# OLD BROWSER REDIRECT #}
@@ -140,8 +154,5 @@
 {%- block body %}
 {% block global_content '' %}
 {% endblock body %}
-{%- if not debug -%}
-    {# Code Google Anlytics #}
-{%- endif -%}
 </body>
 </html>

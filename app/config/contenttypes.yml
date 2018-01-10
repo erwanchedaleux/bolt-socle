@@ -31,13 +31,6 @@ pages:
         template:
             type: templateselect
             filter: '*.twig'
-        panel:
-            type: checkbox
-            label: "Afficher le panneau du bas"
-        robots:
-            type: checkbox
-            label: "référencer cette page"
-            default: 1
         image_hero:
             group: Hero
             label: Image
@@ -51,15 +44,9 @@ pages:
         image_hero_button:
             label: Intitulé du bouton de l'image
             type: text
-        meta_title:
-            group: SEO
-            label: Titre SEO
-            type: text
-            uses: [ title ]
-        meta_description:
-            label: Description SEO
-            type: textarea
-            height: 100px
+        seo:
+            type: seo
+            group: "SEO"
     taxonomy: [ groups ]
     recordsperpage: 100
 

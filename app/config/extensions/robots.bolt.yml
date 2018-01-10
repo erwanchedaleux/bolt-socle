@@ -1,0 +1,20 @@
+##
+## Settings for generated robots.txt
+##
+
+## Enable/disable caching of the response
+cache: false
+
+## Rules to compile. See http://www.robotstxt.org/robotstxt.html
+rules:
+   '*':
+       - /app/
+       - /extensions/
+       - /vendor/
+#    Google:
+#        -
+#    BadBot:
+#        - /
+
+## Absolute path to XML sitemap file.
+sitemap: http://www.bolt-socle.com/sitemap.xml
