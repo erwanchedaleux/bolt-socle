@@ -2,7 +2,7 @@
 <html lang="{{ htmllang() }}" class="no-js">
 <head>
     {%- set debug = config.get('general/debug') %}
-    {% set dev_mode = ('dev.bolt-socle' in canonical() ? 'true' : 'false') %}
+    {%- set dev_mode = ('dev.bolt-socle' in canonical() ? 'true' : 'false') %}
     {%- set maintenance = config.get('general/maintenance_mode') %}
     {%- set version = (debug ? date().timestamp : config.get('general/version')) %}
     {%- set site_title = config.get('general/sitename') %}
@@ -51,14 +51,6 @@
     <meta name="twitter:image" content="{{ twitter_image }}">
     {% endif %}
     {% endblock twitter_meta %}
-
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="address=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="cleartype" content="on">
 
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
